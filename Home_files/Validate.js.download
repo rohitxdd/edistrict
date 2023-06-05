@@ -1,0 +1,729 @@
+﻿var dtCh = "/";
+var minYear = 1900;
+var maxYear = 2100;
+var remarkLength = 100;
+var addressLength = 500;
+var flag = true;
+var msg = "";
+$(document).ready(function () {
+    var check = null;
+    $('#submit').click(function () { flag = true; return val(); });
+    $('#submitbutton').click(function () { flag = true; val(); return flag; });
+
+    function val() {
+        msg = "";
+        ////For Validating Empty Fields///
+        $('[required="true"]').each(function () {
+            var value = $(this).val();
+            if (value == "" || value == null || value == "-select-" || value == "-Select-") {
+                $(this).css("background-color", "#ffeeee");
+                $(this).css("border", "1px solid #ff0000");
+                msg += $(this).attr("msg") + "\n";
+
+                $(this).focus();
+                flag = false;
+            }
+            else {
+                $(this).css("background-color", "FFFFFF");
+                $(this).css("border", "1px solid #CCC");
+            }
+        });
+
+        ////For Validating Name Fields///
+        $('[datatype="name"]').each(function () {
+            var value = $(this).val();
+            if (value != "" && value != null) {
+                if (IsName(value) == false) {
+                    $(this).css("background-color", "#ffeeee");
+                    $(this).css("border", "1px solid #ff0000");
+                    msg += $(this).attr("msg2") + "\n";
+                    $(this).focus();
+                    flag = false;
+                }
+                else {
+                    $(this).css("background-color", "FFFFFF");
+                    $(this).css("border", "1px solid #CCC");
+                }
+            }
+        });
+
+        ////For Validating Address Fields///
+        $('[datatype="address"]').each(function () {
+            var value = $(this).val();
+            var length = $(this).attr("length");
+            if (value != "" && value != null) {
+                if (IsAddress(value, length) == false) {
+                    $(this).css("background-color", "#ffeeee");
+                    $(this).css("border", "1px solid #ff0000");
+                    msg += $(this).attr("msg2") + "\n";
+                    $(this).focus();
+                    flag = false;
+                }
+                else {
+                    $(this).css("background-color", "FFFFFF");
+                    $(this).css("border", "1px solid #CCC");
+                }
+            }
+        });
+
+        ////For Validating Number Fields///
+        $('[datatype="number"]').each(function () {
+            var value = $(this).val();
+            if (value != "" && value != null) {
+                if (IsNumeric(value) == false) {
+                    $(this).css("background-color", "#ffeeee");
+                    $(this).css("border", "1px solid #ff0000");
+                    msg += $(this).attr("msg2") + "\n";
+                    $(this).focus();
+                    flag = false;
+                }
+                else {
+                    $(this).css("background-color", "FFFFFF");
+                    $(this).css("border", "1px solid #CCC");
+                }
+            }
+        });
+
+        ////For Validating Date Fields///
+        $('[datatype="date"]').each(function () {
+            var value = $(this).val();
+            if (value != "" && value != null) {
+                if (IsDate(value) == false) {
+                    $(this).css("background-color", "#ffeeee");
+                    $(this).css("border", "1px solid #ff0000");
+                    msg += $(this).attr("msg2") + "\n";
+                    $(this).focus();
+                    flag = false;
+                }
+                else {
+                    $(this).css("background-color", "FFFFFF");
+                    $(this).css("border", "1px solid #CCC");
+                }
+            }
+        });
+
+        ////For Validating Future Date///
+        $('[futuredate="false"]').each(function () {
+            var value = $(this).val();
+            if (value != "" && value != null) {
+                if (isFutuerDate(value) == false) {
+                    $(this).css("background-color", "#ffeeee");
+                    $(this).css("border", "1px solid #ff0000");
+                    msg += "Date Entered cannot be Future Date \n";
+                    $(this).focus();
+                    flag = false;
+                }
+                else {
+                    $(this).css("background-color", "FFFFFF");
+                    $(this).css("border", "1px solid #CCC");
+                }
+            }
+        });
+
+        ////For Validating Remarks Fields///
+        $('[datatype="remark"]').each(function () {
+            var value = $(this).val();
+            var length = $(this).attr("length");
+            if (value != "" && value != null) {
+                if (Remark(value, length) == false) {
+                    $(this).css("background-color", "#ffeeee");
+                    $(this).css("border", "1px solid #ff0000");
+                    msg += $(this).attr("msg2") + "\n";
+                    $(this).focus();
+                    flag = false;
+                }
+                else {
+                    $(this).css("background-color", "FFFFFF");
+                    $(this).css("border", "1px solid #CCC");
+                }
+            }
+        });
+
+        //For Validating Exact Length of Text Box//
+        $('[setexactlength="true"]').each(function () {
+            var value = $(this).val();
+            var length = $(this).attr("length");
+            if (value.length != length && value.length > 0) {
+                $(this).css("backgroud-color", "#ffeeee");
+                $(this).css("border", "1px solid #ff0000");
+                msg += $(this).attr("msg3") + "\n";
+                $(this).focus();
+                flag = false;
+            }
+        });
+        //For Validat exceeding Length of Text Box//
+        $('[setmaxlength="true"]').each(function () {
+            var value = $(this).val();
+            var length = $(this).attr("length");
+            if (value.length > length && value.length > 0) {
+                $(this).css("backgroud-color", "#ffeeee");
+                $(this).css("border", "1px solid #ff0000");
+                msg += $(this).attr("msg3") + "\n";
+                $(this).focus();
+                flag = false;
+            }
+        });
+        //For Validat exceeding Length of Text Box//
+        $('[setminlength="true"]').each(function () {
+            var value = $(this).val();
+            var length = $(this).attr("length");
+            if (value.length > length && value.length > 0) {
+                $(this).css("backgroud-color", "#ffeeee");
+                $(this).css("border", "1px solid #ff0000");
+                msg += $(this).attr("msg4") + "\n";
+                $(this).focus();
+                flag = false;
+            }
+        });
+        if (flag == false)
+            alert(msg);
+        return flag;
+    }
+});
+
+//Use to validate Integer value in this block
+function isInteger(s) {
+    var i;
+    for (i = 0; i < s.length; i++) {
+        // Check that current character is number.
+        var c = s.charAt(i);
+        if (((c < "0") || (c > "9"))) return false;
+    }
+    // All characters are numbers.
+    return true;
+}
+
+//Use to validate Future Date value in this block
+function isFutuerDate(dateOfBirth) {
+    var datearray = dateOfBirth.split('/');
+    var currentDate = new Date();
+    currentDate = Date.parse(currentDate.toDateString());
+    var dob = Date.parse(datearray[1]+"/"+datearray[0]+"/"+datearray[2]);
+    var minDate = Date.parse("01/01/1900");
+    if(dob < currentDate && dob > minDate) {
+        // Check that Entered Date is Less than current date And greater than 01/01/1900.
+        return true;
+    }
+    // Date is future Date.
+    return false;
+}
+
+function Is_Integer(obj1, obj2) {
+    var result = null;
+    result = validate_required(obj1);
+    if (result == false)
+        return false;
+    result = isInteger(obj1.value);
+    if (result == false) {
+        obj1.className = "input-validation-error";
+        obj2.style.display = "block";
+        return false;
+    }
+    if (result == true) {
+        obj1.className = "input";
+        obj2.style.display = "none";
+        return true;
+    }
+}
+
+//strip character from string in this block
+function stripCharsInBag(s, bag) {
+    var i;
+    var returnString = "";
+    // Search through string's characters one by one.
+    // If character is not in bag, append to returnString.
+    for (i = 0; i < s.length; i++) {
+        var c = s.charAt(i);
+        if (bag.indexOf(c) == -1) returnString += c;
+    }
+    return returnString;
+}
+
+//check the day of Febuary month
+function daysInFebruary(year) {
+    // February has 29 days in any year evenly divisible by four,
+    // EXCEPT for centurial years which are not also divisible by 400.
+    return (((year % 4 == 0) && ((!(year % 100 == 0)) || (year % 400 == 0))) ? 29 : 28);
+}
+
+function DaysArray(n) {
+    for (var i = 1; i <= n; i++) {
+        this[i] = 31
+        if (i == 4 || i == 6 || i == 9 || i == 11) { this[i] = 30 }
+        if (i == 2) { this[i] = 29 }
+    }
+    return this
+}
+
+function IsDate(dtStr) {
+    var daysInMonth = DaysArray(12)
+    var pos1 = dtStr.indexOf(dtCh)
+    var pos2 = dtStr.indexOf(dtCh, pos1 + 1)
+    var strDay = dtStr.substring(0, pos1)
+    var strMonth = dtStr.substring(pos1 + 1, pos2)
+    var strYear = dtStr.substring(pos2 + 1)
+    strYr = strYear
+    if (strDay.charAt(0) == "0" && strDay.length > 1) strDay = strDay.substring(1)
+    if (strMonth.charAt(0) == "0" && strMonth.length > 1) strMonth = strMonth.substring(1)
+    for (var i = 1; i <= 3; i++) {
+        if (strYr.charAt(0) == "0" && strYr.length > 1) strYr = strYr.substring(1)
+    }
+    month = parseInt(strMonth)
+    day = parseInt(strDay)
+    year = parseInt(strYr)
+    if (pos1 == -1 || pos2 == -1) {
+        //alert("The date format should be : dd/mm/yyyy")
+        return false
+    }
+    if (strMonth.length < 1 || month < 1 || month > 12) {
+        //alert("Please enter a valid month")
+        return false
+    }
+    if (strDay.length < 1 || day < 1 || day > 31 || (month == 2 && day > daysInFebruary(year)) || day > daysInMonth[month]) {
+        //alert("Please enter a valid day")
+        return false
+    }
+    if (strYear.length != 4 || year == 0 || year < minYear || year > maxYear) {
+        //alert("Please enter a valid 4 digit year between "+minYear+" and "+maxYear)
+        return false
+    }
+    if (dtStr.indexOf(dtCh, pos2 + 1) != -1 || isInteger(stripCharsInBag(dtStr, dtCh)) == false) {
+        //alert("Please enter a valid date")
+        return false
+    }
+    return true
+}
+function Is_Date(obj1, obj2) {
+    var result = null;
+    result = validate_required(obj1);
+    if (result == false)
+        return false;
+    result = IsDate(obj1.value);
+    if (result == false) {
+        obj1.className = "input-validation-error";
+        obj2.style.display = "block";
+        return false;
+    }
+    if (result == true) {
+        obj1.className = "input";
+        obj2.style.display = "none";
+        return true;
+    }
+
+}
+
+//check the value exist in field
+function validate_required(field) {
+    with (field) {
+        if (value == null || value == "") {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+}
+
+function Is_Null_Empty(obj1, obj2, obj3) {
+    var result = validate_required(obj1);
+    if (result == false) {
+        obj1.className = "input-validation-error";
+        obj2.style.display = "block";
+        obj3.style.display = "none";
+        return false;
+    }
+    if (result == true) {
+        obj1.className = "input";
+        obj2.style.display = "none";
+        return true;
+    }
+
+}
+
+//validate email in this block
+function validate_email(field, alerttxt) {
+    with (field) {
+        apos = value.indexOf("@");
+        dotpos = value.lastIndexOf(".");
+        if (apos < 1 || dotpos - apos < 2)
+        { alert(alerttxt); return false; }
+        else { return true; }
+    }
+}
+
+//Use to validate Integer value in this block
+function IsNumeric(sText) {
+    var ValidChars = "0123456789";
+    var IsNumber = true;
+    var Char, j;
+    for (j = 0; j < sText.length && IsNumber == true; j++) {
+        Char = sText.charAt(j);
+        if (ValidChars.indexOf(Char) == -1) {
+            IsNumber = false;
+        }
+    }
+    return IsNumber;
+}
+
+function Is_Numeric(obj1, obj2) {
+    var result = null;
+    result = validate_required(obj1);
+    if (result == false)
+        return false;
+    result = IsNumeric(obj1.value);
+    if (result == false) {
+        obj1.className = "input-validation-error";
+        obj2.style.display = "block";
+        return false;
+    }
+    if (result == true) {
+        obj1.className = "input";
+        obj2.style.display = "none";
+        return true;
+    }
+
+}
+
+
+function IsName(sText) {
+    var ValidChars = "\"~!@#$%^&*()_+`1234567890-=<?,>;:[]{}|\\'";
+    var IsNumber = true;
+    var Char, j;
+    for (j = 0; j < sText.length && IsNumber == true; j++) {
+        Char = sText.charAt(j);
+        if (ValidChars.indexOf(Char) >= 0) {
+            IsNumber = false;
+        }
+    }
+    return IsNumber;
+}
+
+function Is_Name(obj1, obj2) {
+    var result = null;
+    result = validate_required(obj1);
+    if (result == false)
+        return false;
+    result = IsName(obj1.value);
+    if (result == false) {
+        obj1.className = "input-validation-error";
+        obj2.style.display = "block";
+        return false;
+    }
+    if (result == true) {
+        obj1.className = "input";
+        obj2.style.display = "none";
+        return true;
+    }
+
+}
+
+function IsAddress(sText, length) {
+    var ValidChars = "~!@#$%^&*()_+`=<?>;':[]{}|\\\"";
+    var IsNumber = true;
+    var Char, j;
+    var Invalid = "-";
+    var flag = 0;
+
+    if (length == "" || length == null)
+        length = addressLength;
+    if (sText.length > length)
+        return false;
+    for (j = 0; j < sText.length && IsNumber == true; j++) {
+        Char = sText.charAt(j);
+        if (ValidChars.indexOf(Char) >= 0) {
+            IsNumber = false;
+        }
+        if (Invalid.indexOf(Char) >= 0) {
+            flag += 1;
+        }
+        else {
+            flag = 0;
+        }
+        if (flag > 1)
+            IsNumber = false;
+    }
+    return IsNumber;
+}
+function Is_Address(obj1, obj2) {
+    var result = null;
+    result = validate_required(obj1);
+    if (result == false)
+        return false;
+    result = IsAddress(obj1.value);
+    if (result == false) {
+        obj1.className = "input-validation-error";
+        obj2.style.display = "block";
+        return false;
+    }
+    if (result == true) {
+        obj1.className = "input";
+        obj2.style.display = "none";
+        return true;
+    }
+
+}
+function NameValidate(f, s, v) {
+
+    if (validate_required(f) == false) { f.className = "input-validation-error"; v.style.display = "block"; s.style.display = "none"; return; }
+    else {
+        v.style.display = "none"; f.className = "input";
+    }
+    if (IsName(f.value) == false) {
+        f.className = "input-validation-error";
+        s.style.display = "block";
+    }
+    else {
+        s.style.display = "none";
+        f.className = "input";
+    }
+}
+function AddressValidate(f, s, v) {
+    if (validate_required(f) == false) { f.className = "input-validation-error"; v.style.display = "block"; s.style.display = "none"; return; }
+    else {
+        v.style.display = "none"; f.className = "input";
+    }
+
+    if (IsAddress(f.value) == false) {
+        f.className = "input-validation-error";
+        s.style.display = "block";
+    }
+    else {
+        s.style.display = "none";
+        f.className = "input";
+    }
+}
+function DateValidate(f, s, v) {
+    if (validate_required(f) == false) { f.className = "input-validation-error"; v.style.display = "block"; s.style.display = "none"; return; }
+    else {
+        v.style.display = "none"; f.className = "input";
+    }
+    if (IsDate(f.value) == false) {
+        f.className = "input-validation-error";
+        s.style.display = "block";
+    }
+    else {
+        s.style.display = "none";
+        f.className = "input";
+    }
+}
+function Remark(sText, length) {
+    var ValidChars = "~!@#$%^&*()_+`=<?>;':[]{}|\\\"";
+    var IsNumber = true;
+    var Char, j;
+    var Invalid = "-";
+    var flag = 0;
+
+    if (length == "" || length == null)
+        length = remarkLength;
+    if (sText.length > length)
+        return false;
+    for (j = 0; j < sText.length && IsNumber == true; j++) {
+        Char = sText.charAt(j);
+        if (ValidChars.indexOf(Char) >= 0) {
+            IsNumber = false;
+        }
+        if (Invalid.indexOf(Char) >= 0) {
+            flag += 1;
+        }
+        else {
+            flag = 0;
+        }
+        if (flag > 1)
+            IsNumber = false;
+    }
+    return IsNumber;
+}
+
+// check to see if input is alphanumeric
+function isAlphaNumeric(val) {
+    if (val.match(/^[a-zA-Z0-9]+$/)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// check to see if input is a valid email address
+function isEmailAddress(val) {
+    if (val.match(/^([a-zA-Z0-9([.a-zA-Z0-9_-])*@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-]+)+/)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+function isNumericKey(e) {
+    if (window.event) {
+        var charCode = window.event.keyCode;
+    }
+    else if (e) {
+        var charCode = e.which;
+    }
+    else {
+        return true;
+    }
+    if (charCode < 48 || charCode > 57) {
+        return false;
+    }
+    return true;
+}
+
+function isDecimal(evt, obj) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    var value = obj.value;
+    var dotcontains = value.indexOf(".") != -1;
+    if (dotcontains)
+        if (charCode == 46) return false;
+    if (charCode == 46) return true;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    AfterDecimal = value.substring(value.indexOf("."), value.length)
+    if (AfterDecimal.length == 4) return false;
+    return true;
+}
+
+
+function isAlpha(e) {
+    var keynum;
+    var keychar;
+    var numcheck;
+    // For IE
+    if (window.event) {
+        keynum = event.keyCode;
+    }
+    // netscape/Firefox/opera
+    else if (e.which) {
+        keynum = e.which;
+    }
+    //condition for backspace(8) Key
+    if (keynum != 8 && typeof keynum != 'undefined') {
+        keychar = String.fromCharCode(keynum);
+        numcheck = /^[a-zA-Z].*$/;
+        return numcheck.test(keychar);
+    }
+    else {
+        return true;
+    }
+}
+function isAlphaSpace(e) {
+    var keynum;
+    var keychar;
+    var numcheck;
+    // For IE
+    if (window.event) {
+        keynum = event.keyCode;
+    }
+    // netscape/Firefox/opera
+    else if (e.which) {
+        keynum = e.which;
+    }
+    //condition for backspace(8) Key
+    if (keynum != 8 && typeof keynum != 'undefined') {
+        keychar = String.fromCharCode(keynum);
+        numcheck = /^[a-zA-Z ].*$/;
+        return numcheck.test(keychar);
+    }
+    else {
+        return true;
+    }
+}
+function isAlphaNumeric(e) {
+    var keynum;
+    var keychar;
+    var numcheck;
+    // For IE
+    if (window.event) {
+        keynum = event.keyCode;
+    }
+    // netscape/Firefox/opera
+    else if (e.which) {
+        keynum = e.which;
+    }
+    //condition for backspace(8) Key
+    if (keynum != 8 && typeof keynum != 'undefined') {
+        keychar = String.fromCharCode(keynum);
+        numcheck = /^[a-zA-Z0-9].*$/;
+        return numcheck.test(keychar);
+    }
+    else {
+        return true;
+    }
+}
+function isAlphaSpaceCommaDotKey(e) {
+    var keynum;
+    var keychar;
+    var numcheck;
+    // For IE
+    if (window.event) {
+        keynum = event.keyCode;
+    }
+    // netscape/Firefox/opera
+    else if (e.which) {
+        keynum = e.which;
+    }
+    //condition for backspace(8) Key
+    if (keynum != 8 && typeof keynum != 'undefined') {
+        keychar = String.fromCharCode(keynum);
+        numcheck = /^[a-zA-Z .].*$/;
+        return numcheck.test(keychar);
+    }
+    else {
+        return true;
+    }
+}
+function isAlphaNumericWithSpecialKey(e) {
+    var keynum;
+    var keychar;
+    var numcheck;
+    // For IE
+    if (window.event) {
+        keynum = event.keyCode;
+    }
+    // netscape/Firefox/opera
+    else if (e.which) {
+        keynum = e.which;
+    }
+    //condition for backspace(8) Key
+    if (keynum != 8 && typeof keynum != 'undefined') {
+        keychar = String.fromCharCode(keynum);
+        numcheck = /^[a-zA-Z0-9 ,.()/-].*$/;
+        return numcheck.test(keychar);
+    }
+    else {
+        return true;
+    }
+}
+
+ function isDecimalNumericKey(evt) {
+ var charCode = (evt.which) ? evt.which : event.keyCode
+ if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+     return false;
+ else {
+     var len = evt.value.length;
+     var index = evt.value.indexOf('.');
+     if (index > 0 && charCode == 46) {
+         return false;
+     }
+     if (index > 0) {
+         var CharAfterdot = (len + 1) - index;
+         if (CharAfterdot > 3) {
+             return false;
+         }
+     }
+ }
+    return true;
+}
+
+
+function CheckEmptyNullWhiteSpce(val) {
+    if (val == null)
+        return false;
+    if (val == "")
+        return false;
+    if (val.trim().length < 1)
+        return false;
+    return true;
+}

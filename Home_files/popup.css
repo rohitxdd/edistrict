@@ -1,0 +1,56 @@
+.dialog
+{
+    background-color:#ffffff;
+    padding:20px;
+    -moz-border-radius-bottomleft:6px;
+	-webkit-border-bottom-left-radius:6px;
+	border-bottom-left-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	-webkit-border-bottom-right-radius:6px;
+	border-bottom-right-radius:6px;
+	border:1px solid black;
+    
+}
+.ui-dialog-titlebar
+{
+    /*background:-o-linear-gradient(bottom, #4A4A4A 5%, #858585 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4A4A4A), color-stop(1, #858585) );
+	background:-moz-linear-gradient( center top, #4A4A4A 5%, #858585 100% );*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#4A4A4A", endColorstr="#858585");	background: -o-linear-gradient(top,#4A4A4A,#858585);
+    
+   -moz-border-radius-topright:6px;
+	-webkit-border-top-right-radius:6px;
+	border-top-right-radius:6px;
+	
+	-moz-border-radius-topleft:6px;
+	-webkit-border-top-left-radius:6px;
+	border-top-left-radius:6px;
+    padding:10px;
+    background-color:#084c9d !important;
+    color:#fff !important;
+    font-family:MV Boli; 
+    font-family:Segoe Print; 
+}
+.ui-dialog-titlebar-close
+{
+    border-left:2px solid #fff;
+    padding-left: 4px;
+    text-align:center;
+    float:right;
+    color:#8EF433;
+    font-weight:bold;
+}
+
+#ui-dialog-confirm
+{
+
+    background:#blue;
+    border-left:2px solid #fff;
+    padding-left: 4px;
+    text-align:center;
+    float:right;
+    color:#8EF433;
+    font-weight:bold;
+}
+
+
+.ui-icon-closethick{background: url(../images/Failed.png) no-repeat 0 0;}

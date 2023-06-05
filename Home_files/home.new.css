@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;700&family=Lato:wght@400;700&family=Public+Sans:wght@400;700;800&display=swap");
+  /* fonts */
+  --font-public-sans: "Public Sans", sans-serif;
+  --font-kameron: Kameron;
+  --font-k2d: K2D;
+  --font-lato: "Lato", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  /* font sizes */
+  --font-size-smi: 0.81rem;
+  --font-size-mini: 0.94rem;
+  --font-size-lg: 1.13rem;
+  --font-size-xl: 1.25rem;
+  --font-size-5xl: 1.5rem;
+  --font-size-sm: 0.88rem;
+  --font-size-xs: 0.75rem;
+  --font-size-2xs: 0.69rem;
+
+  /* Colors */
+  --color-black: #000;
+  --color-white: #fff;
+  --color-darkslategray-100: #216579;
+  --color-darkslategray-200: #226377;
+  --color-darkslategray-300: #1a5061;
+  --color-gray-100: rgba(0, 0, 0, 0.57);
+  --color-gray-200: rgba(255, 255, 255, 0.81);
+  --color-gray-300: rgba(255, 255, 255, 0.47);
+  --color-gray-400: rgba(255, 255, 255, 0.92);
+  --color-darkslateblue: #29327f;
+  --color-steelblue: #224e77;
+  --color-aliceblue-100: #f1f9ff;
+  --color-lightblue: rgba(203, 236, 254, 0.45);
+  --color-whitesmoke: rgba(239, 235, 235, 0.47);
+
+  /* border radiuses */
+  --br-3xs: 10px;
+  --br-11xl: 30px;
+  --br-xl: 20px;
+  --br-81xl: 100px;
+  --br-8xs: 5px;
+  --br-5xs: 8px;
+}
+
+.header {
+  border-radius: var(--br-5xs);
+  background-color: var(--color-steelblue);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  font-family: var(--font-public-sans);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 1rem;
+}
+
+.header .header-title,
+.login-register {
+  font-family: var(--font-inter);
+  font-size: var(--font-size-smi);
+  color: white;
+  height: 1.25rem;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.login-register:hover {
+  color: rgb(224, 224, 224);
+  text-decoration: none;
+}
+
+.header-icon {
+  width: 1.63rem;
+  height: 1.19rem;
+}
+
+.skip-to-content {
+  width: 1.69rem;
+  height: 1.56rem;
+  margin: 0 5px;
+}
+
+.sub-header-logo {
+  height: 4rem;
+}
+
+.nav-bar {
+  background: linear-gradient(
+    90deg,
+    #833ab4 0%,
+    #347e96 50%,
+    #456afc 100%
+  ) !important;
+  border-radius: 8px !important;
+  margin: 0 15px;
+}
+
+.nav-link {
+  font-family: var(--font-inter) !important;
+  font-weight: 700 !important;
+  text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nav-background {
+  background-color: #56abc6;
+  border-radius: 8px;
+  margin: 0 -15px;
+  padding: 0 0 25px;
+}
+
+.stats-wrapper {
+}
+
+.stats-wrapper .stats-box {
+  background-color: #f1f9ff;
+  box-shadow: 4px 8px 4px 4px rgba(14, 38, 100, 0.25);
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-family: var(--font-lato);
+  color: var(--color-gray-100);
+  font-size: var(--font-size-xs);
+}
+
+.stats-wrapper .stats-box > p:first-child {
+  font-size: var(--font-size-mini);
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+#carousel-edistrict {
+  margin-top: -15px;
+}
+
+.work-sector .sector-back {
+  background-color: #226377;
+  box-shadow: 0px 4px 4px 4px rgba(38, 125, 163, 0.25);
+  border-radius: 10px;
+  color: white;
+  font-family: var(--font-public-sans);
+  font-style: normal;
+}
+
+.work-sector .sector-back h2 {
+  background-color: transparent;
+  text-align: left;
+  display: inline-block;
+  border: none;
+  color: white;
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.work-sector .sector-back p {
+  text-align: justify;
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.2rem;
+}
+
+.work-sector .sector-back .btn-about {
+  background: #fe9e46;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.work-sector .sector-back .login-box {
+  background-color: white;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  padding: 1.25rem 0;
+  cursor: pointer;
+}
+
+.work-sector .sector-back .login-box > img {
+  height: 76px;
+  width: 76px;
+}
+
+.work-sector .sector-back .login-box > p {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #1a5061;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "edistrict-new",
+  "version": "1.0.0",
+  "description": "",
+  "entry":"app.js",
+  "scripts": {
+    "start": "node --watch app.js"
+  },
+  "author": "Rohit",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.1"
+  }
+}

@@ -1,0 +1,45 @@
+
+:root{
+    --topblue:#002550;
+    --menublue:#004595;
+    --megablue:#092243;
+    --orange: #f59d02;
+    --blue:#052853;
+    --subblue:#234e82;
+    --footerblue:#0B2543;
+    --footerbottom:#04182F;
+    --hoverblue:#005FA8;
+    --textblue:#084C9D;
+    --lightblue:#ECF4FC;
+    --brown:#471A05;
+    --white:#ffffff;
+    --black:#000000;
+    --lightgrey:#F5F5F5;
+    --yellow:#FFC404;
+    --leftmenu:#ffffff;
+    --bodybg:#ffffff;
+    --navblue:#084c9d;
+    --textblue:#084c9d;
+    --borderblue:#084c9d;
+    --faqbg:#ffffff;
+    --faqcard:#E4F0FC;
+    --cardbdr:#e4f0fc;
+    --textlink:#007bff;
+    --arrowcolor:#14468d;
+    --arrowbg:#2662A9;
+    --theadbg:#084c9d;
+    --theadtext:#ffffff;
+    --tbody:#EFF4FA;
+    --tbdr:#dee2e6;
+    --leftsub:#faf5e6;
+    --bg-white:#ffffff;
+  }
+   /* Font size variables */
+  :root {
+    --small-font: 12px;
+    --medium-font: 14px;
+    --large-font: 16px;
+    --heading-font:24px;
+    --sub-heading-font:18px;
+    --line-height:1.5;
+  }
