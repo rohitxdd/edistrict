@@ -139,6 +139,10 @@ body {
   margin-top: -15px;
 }
 
+.work-sector {
+  max-width: 1500px;
+}
+
 .work-sector .sector-back {
   background-color: #226377;
   box-shadow: 0px 4px 4px 4px rgba(38, 125, 163, 0.25);
@@ -164,6 +168,10 @@ body {
   margin: 0;
   font-size: var(--font-size-xs);
   line-height: 1.2rem;
+}
+
+.work-sector .sector-back .about-img {
+  max-width: 400px;
 }
 
 .work-sector .sector-back .btn-about {
@@ -196,4 +204,195 @@ body {
   line-height: 16px;
   text-align: center;
   color: #1a5061;
+}
+
+.our-services .services-title {
+  color: black;
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.card-text-box {
+  background-color: rgba(203, 236, 254);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 10px;
+}
+
+.card-text-box > p {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.carousel-inner .card {
+  border: none;
+  background-color: transparent;
+}
+
+.circular-img {
+  border-radius: 5rem;
+}
+
+.carousel-back-bg {
+  background-color: #d5eef6;
+  height: 50%;
+  border-radius: 12px;
+  width: 100%;
+  z-index: -100;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+
+.booking-row .booking-col-img{
+  display: flex;
+  justify-content: end;
+}
+
+.booking-row .booking-col-text{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.booking-row .booking-text-section {
+  background-color: #d4f2f9;
+  box-shadow: 0px 4px 4px rgba(52, 105, 143, 0.25);
+  border-radius: 20px;
+  margin-left: -100px;
+}
+
+.booking-row .booking-text-section img {
+  width: 1.25rem;
+  margin: 0 5px;
+}
+
+.booking-row .booking-text-section .text-span {
+  font-family: "Kameron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #000000;
+}
+
+.booking-row .booking-row-image {
+  z-index: 100;
+}
+
+.booking-row .booking-text-section > h1 {
+  background-color: transparent;
+  color: black;
+  border: none;
+}
+
+.new-section-title {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: justify;
+  color: #ffffff;
+  background-color: #216579;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  padding: 10px 50px;
+}
+
+.new-section-body {
+  background: linear-gradient(0deg, #d5eef6 0%, #ffffff 100%);
+  box-shadow: 0px 4px 4px rgba(52, 105, 143, 0.25);
+  border-radius: 10px;
+}
+
+.new-section-body ul {
+  text-align: left;
+  padding: 20px;
+  width: 90%;
+}
+
+.new-section-body ul li a {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: justify;
+  text-decoration-line: underline;
+  color: #000000;
+  display: inline-block;
+}
+
+.new-section-body .new-section-link li a::after {
+  content: "";
+  background: url("./Images/newgificon4-5@2x.png");
+  position: absolute;
+  scale: 0.5;
+  width: 89px;
+  height: 27px;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .custom-carousel-inner .carousel-item > div {
+    display: none;
+  }
+  .custom-carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
+
+  .booking-row .booking-col-img{
+    justify-content: center;
+  }
+
+  .booking-row .booking-col-text{
+    justify-content: center;
+  }
+  .booking-row .booking-text-section{
+    margin-left: 0;
+  }
+
+}
+
+.custom-carousel-inner .carousel-item.active,
+.custom-carousel-inner .carousel-item-next,
+.custom-carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+  .custom-carousel-inner .carousel-item-right.active,
+  .custom-carousel-inner .carousel-item-next {
+    transform: translateX(33.333%);
+  }
+
+  .custom-carousel-inner .carousel-item-left.active,
+  .custom-carousel-inner .carousel-item-prev {
+    transform: translateX(-33.333%);
+  }
+}
+
+.custom-carousel-inner .carousel-item-right,
+.custom-carousel-inner .carousel-item-left {
+  transform: translateX(0);
 }
