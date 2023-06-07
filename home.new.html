@@ -611,8 +611,8 @@
               class="carousel slide w-100"
               data-ride="carousel"
             >
-              <div class="carousel-inner w-100" role="listbox">
-                <div class="carousel-item active">
+              <div class="carousel-inner custom-carousel-inner  w-100" role="listbox">
+                <div class="carousel-item custom-carousel active">
                   <div class="col-md-4">
                     <div class="card card-body position-relative">
                       <a href="/Account/Login">
@@ -627,7 +627,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item custom-carousel">
                   <div class="col-md-4">
                     <div class="card card-body position-relative">
                       <a href="/Public/TrackApplication">
@@ -642,7 +642,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item custom-carousel">
                   <div class="col-md-4">
                     <div class="card card-body position-relative">
                       <a href="/Public/VerifyCertificate">
@@ -657,7 +657,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item custom-carousel">
                   <div class="col-md-4">
                     <div class="card card-body position-relative">
                       <a href="/Public/DownloadVerifyCertificate">
@@ -706,7 +706,7 @@
 
       <div class="container-fluid my-5" style="max-width: 1500px;">
         <div class="row booking-row">
-          <div class="col-md-6 d-flex justify-content-end">
+          <div class="col-md-6 booking-col-img">
             <img
               class="booking-row-image position-relative img-fluid"
               src="./Home_files/Images/need-help.png"
@@ -714,7 +714,7 @@
             />
           </div>
           <div
-            class="col-md-6 d-flex align-items-center justify-content-start"
+            class="col-md-6 booking-col-text"
           >
             <div class="booking-text-section p-5">
               <h1>Government Service Now at Your Doors!</h1>
@@ -769,11 +769,11 @@
     <script defer>
       $(".carousel").carousel();
 
-      $("#recipeCarousel").carousel({
+      $("#service-carousel").carousel({
         interval: 10000,
       });
 
-      $(".carousel .carousel-item").each(function () {
+      $(".carousel .custom-carousel").each(function () {
         var minPerSlide = 3;
         var next = $(this).next();
         if (!next.length) {
