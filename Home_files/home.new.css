@@ -206,7 +206,8 @@ body {
   color: #1a5061;
 }
 
-.our-services .services-title {
+.our-services .services-title,
+.more-info .more-info-title {
   color: black;
   font-family: var(--font-public-sans);
   font-style: normal;
@@ -259,13 +260,12 @@ body {
   margin: auto 0;
 }
 
-
-.booking-row .booking-col-img{
+.booking-row .booking-col-img {
   display: flex;
   justify-content: end;
 }
 
-.booking-row .booking-col-text{
+.booking-row .booking-col-text {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -295,7 +295,7 @@ body {
 }
 
 .booking-row .booking-row-image {
-  z-index: 100;
+  z-index: 1;
 }
 
 .booking-row .booking-text-section > h1 {
@@ -352,6 +352,118 @@ body {
   background-repeat: no-repeat;
 }
 
+.more-info .more-info-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 200px;
+}
+
+.more-info .more-info-card .icon-wrapper {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.more-info .more-info-card .icon-wrapper.timeline {
+  background-color: #cffdd1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.more-info .more-info-card .icon-wrapper.guideline {
+  background-color: #eecffd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.more-info .more-info-card .icon-wrapper.officials {
+  background: #fdfbcf;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.more-info .more-info-card .icon-wrapper > img {
+  object-fit: fill;
+  object-position: center;
+  width: 64px;
+}
+
+.more-info .more-info-card > p {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: justify;
+  color: #29327f;
+  text-shadow: 0px 4px 4px rgba(10, 33, 67, 0.25);
+  display: inline-block;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.sub-footer {
+  background: #224e77;
+}
+
+.sub-footer .e-district-info > img {
+  mix-blend-mode: luminosity;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 25vw;
+}
+
+.sub-footer .e-district-info > p {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: justify;
+
+  color: rgba(255, 255, 255, 0.81);
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sub-footer .e-district-policy > h2,
+.sub-footer .e-district-address > h2 {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.47);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: transparent;
+  border: none;
+}
+
+.sub-footer .e-district-policy > ul > li > a,
+.sub-footer .e-district-address > ul > li {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  color: rgba(255, 255, 255, 0.81);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.footer {
+  margin: 0 -15px;
+  background-color: #12304c;
+  padding: 1rem;
+}
+
+.footer > p {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.82);
+}
+
 @media (max-width: 768px) {
   .custom-carousel-inner .carousel-item > div {
     display: none;
@@ -360,17 +472,16 @@ body {
     display: block;
   }
 
-  .booking-row .booking-col-img{
+  .booking-row .booking-col-img {
     justify-content: center;
   }
 
-  .booking-row .booking-col-text{
+  .booking-row .booking-col-text {
     justify-content: center;
   }
-  .booking-row .booking-text-section{
+  .booking-row .booking-text-section {
     margin-left: 0;
   }
-
 }
 
 .custom-carousel-inner .carousel-item.active,
