@@ -117,8 +117,9 @@
     <script src="https://edistrict.delhigovt.nic.in/assets/js/bootstrap.bundle.js"></script>
     <script src="https://edistrict.delhigovt.nic.in/assets/js/fontawesome.js"></script>
     <script src="https://edistrict.delhigovt.nic.in/assets/js/owl.carousel.js"></script>
-    <!-- <script src="https://edistrict.delhigovt.nic.in/assets/js/custom.js"></script> -->
+    <script src="https://edistrict.delhigovt.nic.in/assets/js/custom.js"></script>
     <script src="https://edistrict.delhigovt.nic.in/assets/js/bootnavbar.js"></script>
+    <script src="https://edistrict.delhigovt.nic.in/Scripts/jquery-ui-1.12.1.js"></script>
 
     <link
       rel="stylesheet"
@@ -160,18 +161,21 @@
               <button
                 type="button"
                 class="btn btn-sm text-white decrease bg-transparent"
+                onclick="setFontSize(&#39;minus&#39;);"
               >
                 A-
               </button>
               <button
                 type="button"
                 class="btn btn-sm text-white reset bg-transparent"
+                onclick="setFontSize(&#39;default&#39;);"
               >
                 A
               </button>
               <button
                 type="button"
                 class="btn btn-sm text-white increase bg-transparent"
+                onclick="setFontSize(&#39;plus&#39;);"
               >
                 A+
               </button>
