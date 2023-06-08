@@ -407,7 +407,7 @@ body {
 .sub-footer .e-district-info > img {
   mix-blend-mode: luminosity;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  width: 25vw;
+  width: 200px;
 }
 
 .sub-footer .e-district-info > p {
@@ -464,6 +464,20 @@ body {
   color: rgba(255, 255, 255, 0.82);
 }
 
+
+.visitor-count-wrapper{
+  bottom: -10px;
+  left: 0px;
+}
+.visitor-count-wrapper > p {
+  font-family: var(--font-public-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .custom-carousel-inner .carousel-item > div {
     display: none;
@@ -481,6 +495,7 @@ body {
   }
   .booking-row .booking-text-section {
     margin-left: 0;
+    padding: 2rem !important;
   }
 }
 
@@ -506,4 +521,13 @@ body {
 .custom-carousel-inner .carousel-item-right,
 .custom-carousel-inner .carousel-item-left {
   transform: translateX(0);
+}
+
+@media (max-width: 520px) {
+  .booking-row .booking-text-section img {
+    width: 10px;
+  }
+  .booking-row .booking-text-section .text-span {
+    font-size: 15px;
+  }
 }

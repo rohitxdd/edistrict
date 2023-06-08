@@ -13,12 +13,12 @@ const server = http.createServer((req, res) => {
   } else {
     const filePath = `.${req.url}`;
     fs.readFile(filePath, (err, buf) => {
-        if(!err){
-            res.end(buf)
-        }else{
-            res.statusCode = 404
-            res.end()
-        }
+      if (!err) {
+        res.end(buf);
+      } else {
+        res.statusCode = 404;
+        res.end();
+      }
     });
   }
 });
