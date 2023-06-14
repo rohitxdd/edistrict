@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   line-height: normal;
@@ -7,8 +11,6 @@ body {
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;700&family=Lato:wght@400;700&family=Public+Sans:wght@400;700;800&display=swap");
   /* fonts */
   --font-public-sans: "Public Sans", sans-serif;
-  --font-kameron: Kameron;
-  --font-k2d: K2D;
   --font-lato: "Lato", sans-serif;
   --font-inter: "Inter", sans-serif;
 
@@ -48,7 +50,6 @@ body {
 }
 
 .header {
-  border-radius: var(--br-5xs);
   background-color: var(--color-steelblue);
   text-align: left;
   font-size: var(--font-size-sm);
@@ -58,6 +59,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2px 1rem;
+  margin: 0 -15px;
 }
 
 .header .header-title,
@@ -98,8 +100,7 @@ body {
     #347e96 50%,
     #456afc 100%
   ) !important;
-  border-radius: 8px !important;
-  margin: 0 15px;
+  margin: 0 0px;
 }
 
 .nav-link {
@@ -130,13 +131,26 @@ body {
 }
 
 .stats-wrapper .stats-box > p:first-child {
-  font-size: var(--font-size-mini);
-  padding: 0.5rem;
+  font-size: var(--font-size-lg);
   font-weight: bold;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.stats-wrapper .stats-box > p:first-child:hover {
+  overflow: visible;
+  white-space: normal;
+  height: auto;
 }
 
 #carousel-edistrict {
-  margin-top: -15px;
+  margin: -15px -15px 0;
+  box-shadow: 4px 4px 4px 4px rgba(38, 125, 163, 0.25);
 }
 
 .work-sector {
@@ -144,7 +158,7 @@ body {
 }
 
 .work-sector .sector-back {
-  background-color: #226377;
+  background-color: var(--color-darkslategray-200);
   box-shadow: 0px 4px 4px 4px rgba(38, 125, 163, 0.25);
   border-radius: 10px;
   color: white;
@@ -246,7 +260,9 @@ body {
 }
 
 .circular-img {
-  border-radius: 5rem;
+  border-radius: 47%;
+  background-color: #ffffff;
+  box-shadow: 4px 8px 4px 4px rgba(14, 38, 100, 0.25);
 }
 
 .carousel-back-bg {
@@ -257,7 +273,9 @@ body {
   z-index: -100;
   top: 0;
   bottom: 0;
-  margin: auto 0;
+  right: 0;
+  left: 0;
+  margin: auto auto;
 }
 
 .booking-row .booking-col-img {
@@ -312,7 +330,7 @@ body {
   line-height: 18px;
   text-align: justify;
   color: #ffffff;
-  background-color: #216579;
+  background-color: var(--color-darkslategray-100);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   padding: 10px 50px;
@@ -380,6 +398,12 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.more-info .more-info-card .icon-wrapper.faqs{
+  background: #ECF8F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
 .more-info .more-info-card .icon-wrapper > img {
   object-fit: fill;
   object-position: center;
@@ -393,7 +417,7 @@ body {
   font-size: 15px;
   line-height: 18px;
   text-align: justify;
-  color: #29327f;
+  color: var(--color-darkslateblue);
   text-shadow: 0px 4px 4px rgba(10, 33, 67, 0.25);
   display: inline-block;
   padding: 5px 0;
@@ -401,7 +425,8 @@ body {
 }
 
 .sub-footer {
-  background: #224e77;
+  background: var(--color-steelblue);
+  margin: 0 -15px;
 }
 
 .sub-footer .e-district-info > img {
@@ -423,8 +448,8 @@ body {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.sub-footer .e-district-policy > h2,
-.sub-footer .e-district-address > h2 {
+.sub-footer .e-district-policy  h2,
+.sub-footer .e-district-address  h2 {
   font-family: var(--font-public-sans);
   font-style: normal;
   font-weight: 600;
@@ -437,8 +462,12 @@ body {
   border: none;
 }
 
-.sub-footer .e-district-policy > ul > li > a,
-.sub-footer .e-district-address > ul > li {
+.sub-footer .e-district-policy h2{
+  text-align: start;
+}
+
+.sub-footer .e-district-policy  ul > li > a,
+.sub-footer .e-district-address  ul > li {
   font-family: var(--font-public-sans);
   font-style: normal;
   font-weight: 600;
@@ -464,11 +493,11 @@ body {
   color: rgba(255, 255, 255, 0.82);
 }
 
-
-.visitor-count-wrapper{
-  bottom: -10px;
-  left: 0px;
+.visitor-count-wrapper {
+  bottom: 10px;
+  left: 10px;
 }
+
 .visitor-count-wrapper > p {
   font-family: var(--font-public-sans);
   font-style: normal;
@@ -476,6 +505,7 @@ body {
   font-size: 14px;
   line-height: 18px;
   color: #ffffff;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -516,6 +546,14 @@ body {
   .custom-carousel-inner .carousel-item-prev {
     transform: translateX(-33.333%);
   }
+
+  .work-sector-right-col {
+    padding-right: 0 !important;
+  }
+
+  .work-sector-left-col {
+    padding-left: 0 !important;
+  }
 }
 
 .custom-carousel-inner .carousel-item-right,
@@ -530,4 +568,5 @@ body {
   .booking-row .booking-text-section .text-span {
     font-size: 15px;
   }
+
 }
