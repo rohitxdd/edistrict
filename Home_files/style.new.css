@@ -21,7 +21,6 @@
 }
 
 :root {
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;700&family=Lato:wght@400;700&family=Public+Sans:wght@400;700;800&display=swap");
   /* fonts */
   --font-public-sans: "Public Sans", sans-serif;
   --font-lato: "Lato", sans-serif;
@@ -427,10 +426,7 @@ a.hide_menu {
   border-bottom: 0px;
 }
 
-.wrapper.light-header .top-nav {
-  background-color: var(--color-steelblue);
-  font-family: var(--font-public-sans);
-}
+
 
 .wrapper.light-header .top-nav .right-panel li.cog-dropdown > a {
   color: var(--white) !important;
@@ -530,17 +526,7 @@ button:focus {
   line-height: 32px;
   font-weight: 600;
 }
-.our-service .figure.position-relative .figcaption {
-  width: 100%;
-  z-index: 2;
-  padding: 8px 20px 10px;
-  transition: 0.8s ease;
-  bottom: 0px;
-  height: 46px;
-  background: #226377;
-  opacity: 0.8;
-  text-align: center;
-}
+
 
 .our-service .figure.position-relative .figcaption span {
   font-size: 16px;
@@ -679,12 +665,7 @@ button:focus {
 }
 
 /* WORKSEC CSS START */
-.worksec {
-  background: #226377 url(../images/pattern.png) no-repeat;
 
-  background-size: cover;
-  padding: 50px 0 10px;
-}
 #worksec .work-left h3 {
   font-size: 24px;
   line-height: 32px;
@@ -805,10 +786,6 @@ button:focus {
 /* ====== HOMEPAGE CSS END ====== */
 /* ====== FOOTER START ====== */
 
-.footer-top {
-  background: var(--color-steelblue);
-  padding: 45px 0px;
-}
 
 .footer-top ul li a {
   font-size: 14px;
@@ -859,9 +836,8 @@ ul.contact_details li {
   margin-right: 7px;
   margin-top: 5px;
 }
-.footer-bottom {
-  background-color: #12304c;
-}
+
+
 
 .footer-bottom .footer-border {
   padding: 10px 0px;
@@ -1280,6 +1256,45 @@ h2 {
   width: 900px;
 }
 
+
+
+/* New font and color changes on nav and footer */
+.footer-bottom {
+  background-color: #12304c;
+  font-family: var(--font-public-sans);
+}
+
+.footer-top {
+  background: var(--color-steelblue);
+  font-family: var(--font-public-sans);
+  padding: 45px 0px;
+}
+
+.worksec {
+  background: var(--color-darkslategray-200) url(../images/pattern.png) no-repeat;
+  background-size: cover;
+  padding: 50px 0 10px;
+}
+
+.our-service .figure.position-relative .figcaption {
+  width: 100%;
+  z-index: 2;
+  padding: 8px 20px 10px;
+  transition: 0.8s ease;
+  bottom: 0px;
+  height: 46px;
+  background: var(--color-darkslategray-200);
+  opacity: 0.8;
+  text-align: center;
+}
+
+.wrapper.light-header .top-nav {
+  background-color: var(--color-steelblue);
+  font-family: var(--font-public-sans);
+}
+
+/* / New font and color changes on nav and footer */
+
 /* For Desktop View */
 @media screen and (min-width: 1024px) {
   .gfg-div {
@@ -1518,3 +1533,7 @@ h2 {
     width: 400px;
   }
 }
+
+
+
+
